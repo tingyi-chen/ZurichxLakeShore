@@ -1,0 +1,118 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'demod_ui.ui'
+#
+# Created by: PyQt5 UI code generator 5.13.2
+#
+# WARNING! All changes made in this file will be lost!
+
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(600, 400)
+        MainWindow.setMinimumSize(QtCore.QSize(300, 200))
+        MainWindow.setMaximumSize(QtCore.QSize(600, 400))
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.AdvancedSettings = QtWidgets.QLabel(self.centralwidget)
+        self.AdvancedSettings.setGeometry(QtCore.QRect(217, 20, 165, 24))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        self.AdvancedSettings.setFont(font)
+        self.AdvancedSettings.setObjectName("AdvancedSettings")
+        self.Demodulators = QtWidgets.QLabel(self.centralwidget)
+        self.Demodulators.setGeometry(QtCore.QRect(251, 40, 97, 18))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.Demodulators.setFont(font)
+        self.Demodulators.setObjectName("Demodulators")
+        self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.layoutWidget.setGeometry(QtCore.QRect(210, 80, 91, 201))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.layoutWidget)
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.ADCSelect = QtWidgets.QLabel(self.layoutWidget)
+        self.ADCSelect.setAlignment(QtCore.Qt.AlignCenter)
+        self.ADCSelect.setObjectName("ADCSelect")
+        self.gridLayout_2.addWidget(self.ADCSelect, 0, 0, 1, 1)
+        self.Order = QtWidgets.QLabel(self.layoutWidget)
+        self.Order.setAlignment(QtCore.Qt.AlignCenter)
+        self.Order.setObjectName("Order")
+        self.gridLayout_2.addWidget(self.Order, 1, 0, 1, 1)
+        self.Rate = QtWidgets.QLabel(self.layoutWidget)
+        self.Rate.setAlignment(QtCore.Qt.AlignCenter)
+        self.Rate.setObjectName("Rate")
+        self.gridLayout_2.addWidget(self.Rate, 3, 0, 1, 1)
+        self.TC = QtWidgets.QLabel(self.layoutWidget)
+        self.TC.setAlignment(QtCore.Qt.AlignCenter)
+        self.TC.setObjectName("TC")
+        self.gridLayout_2.addWidget(self.TC, 2, 0, 1, 1)
+        self.layoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
+        self.layoutWidget_2.setGeometry(QtCore.QRect(310, 80, 81, 201))
+        self.layoutWidget_2.setObjectName("layoutWidget_2")
+        self.gridLayout = QtWidgets.QGridLayout(self.layoutWidget_2)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout.setObjectName("gridLayout")
+        self.order = QtWidgets.QSpinBox(self.layoutWidget_2)
+        font = QtGui.QFont()
+        font.setBold(False)
+        font.setWeight(50)
+        self.order.setFont(font)
+        self.order.setAlignment(QtCore.Qt.AlignCenter)
+        self.order.setObjectName("order")
+        self.gridLayout.addWidget(self.order, 1, 0, 1, 1)
+        self.adcSelect = QtWidgets.QSpinBox(self.layoutWidget_2)
+        self.adcSelect.setAlignment(QtCore.Qt.AlignCenter)
+        self.adcSelect.setObjectName("adcSelect")
+        self.gridLayout.addWidget(self.adcSelect, 0, 0, 1, 1)
+        self.rate = QtWidgets.QSpinBox(self.layoutWidget_2)
+        self.rate.setMinimumSize(QtCore.QSize(0, 0))
+        self.rate.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.rate.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.rate.setAlignment(QtCore.Qt.AlignCenter)
+        self.rate.setReadOnly(False)
+        self.rate.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
+        self.rate.setObjectName("rate")
+        self.gridLayout.addWidget(self.rate, 3, 0, 1, 1)
+        self.tc = QtWidgets.QDoubleSpinBox(self.layoutWidget_2)
+        self.tc.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tc.setAlignment(QtCore.Qt.AlignCenter)
+        self.tc.setObjectName("tc")
+        self.gridLayout.addWidget(self.tc, 2, 0, 1, 1)
+        self.pageUp = QtWidgets.QPushButton(self.centralwidget)
+        self.pageUp.setGeometry(QtCore.QRect(20, 10, 61, 32))
+        self.pageUp.setObjectName("pageUp")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 600, 22))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.AdvancedSettings.setText(_translate("MainWindow", "Advanced Settings"))
+        self.Demodulators.setText(_translate("MainWindow", "Demodulators"))
+        self.ADCSelect.setText(_translate("MainWindow", "ADC Select"))
+        self.Order.setText(_translate("MainWindow", "Order"))
+        self.Rate.setText(_translate("MainWindow", "Rate"))
+        self.TC.setText(_translate("MainWindow", "Time Constant"))
+        self.pageUp.setText(_translate("MainWindow", "＜--"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
