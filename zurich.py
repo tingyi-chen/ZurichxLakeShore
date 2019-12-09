@@ -7,21 +7,24 @@ import statistics
 from pymeasure.instruments.lakeshore.lakeshore331 import LakeShore331
 
 class Zurich():
-    '''1. 多一個 self，是使用自己的類別中的變數，而不是外部變數
-    2. 外部變數沒有 self，內部變數有 self。
-    3. 可以確保不要人用不同的 self 卻得到相同的回傳值。
-    4. 簡單一點說，一個變數需要被跨函數存取，就加 self，如果只是在一個函數內被用到，就不要加 self。
-    5. zurich.py 的 self 就是 Zurich() 本身
-    '''
+    ''' This Zurich() Class provides the connecting bridge between HF2LI, LakeShore and PC.'''
 
     def __init__(self, device_id, channel):
+        ''' First, __init__() creates an API to communicate with HF2LI with the device ID (ex.'dev1521') 
+            and the channel that used for input, output, demodulators and others.
+            Second, __init__() also makes a connection to LakeShore335 via GPIB/USB cable, which provided
+            by National Instruments.
+            Last, __init__() initializes the global parameters that used for sweeping if the user does 
+            not assign a value.
+        '''
+        
         self.device = device_id
         discov = zp.ziDiscovery()
         self.props = discov.get(discov.find(self.device))
         self.daq = zp.ziDAQServer(self.props['serveraddress'], self.props['serverport'], self.props['apilevel'])
         self.channel = str(channel)
 
-        # self.lk = LakeShore331("GPIB0::12::INSTR")
+        self.lk = LakeShore331("GPIB0::12::INSTR")
 
         self.data_dict = {}
         self.count = 0
@@ -45,11 +48,12 @@ class Zurich():
         self.fSampleCount = 21
         self.tdaffLogrithmicPlotting = 1
         
-    '''Basic Settings'''
-    '''Parameters related to signal out'''
+    ''' Here are basic I/O parameters that must be in this form because they are called by PyQt's .connect(function)
+        method to make them connected to boxes, buttons, ... of the graphic user interface.'''
     def setDeviceName(self, device_name):
         self.device_name = device_name
 
+    ''' Parameters related to signal out'''
     def sigouts(self, out_node):
         self.daq.set(out_node)
 
@@ -76,7 +80,7 @@ class Zurich():
         out_node = [['/'+ self.device+ '/sigouts/'+ self.channel+ '/offset', self.voutDCoffset]]
         self.sigouts(out_node)
 
-    '''Parameters related to signal in'''
+    ''' Parameters related to signal in '''
     def sigins(self, in_node):
         self.daq.set(in_node)
 
@@ -115,7 +119,7 @@ class Zurich():
         in_node = [['/'+ self.device+ '/sigins/'+ self.channel+ '/ac', self.acCoupling_ZI]]
         self.sigins(in_node)
 
-    '''Parameters related to oscillators'''
+    ''' Parameters related to oscillators'''
     def oscs(self, oscs_node):
         self.daq.setDouble(oscs_node[0], oscs_node[1])
 
@@ -148,9 +152,8 @@ class Zurich():
     def demods(self, demods_node):
         self.daq.set(demods_node)
 
-    '''Parameters related to Transimpedance Amplifier
-    1. 控制轉阻放大器。
-    2. dccoupling = 0 代表此放大器處使用 AC coupling模式。
+    ''' Parameters related to Transimpedance Amplifier
+        setTAdccouplingNo() represents that TA is in the AC Coupling mode.
     '''
     def setGain(self, TAgain):
         self.TAgain = float(TAgain)
@@ -168,11 +171,14 @@ class Zurich():
     def tamp(self, tamp_node):
         self.daq.set(tamp_node)
 
-    '''freq_sweeper:
-    1. 此函數之功能為掃描頻率，以對數軸紀錄頻率範圍，並且需搭配 data_prcs 以及 save 函數。
-    2. 此函數需輸入 (1) 起始頻率 (2) 結束頻率 (3) 中間分隔成幾個點 (4) 掃幾次
-    '''
-    def freqSweeper(self, Start, Stop, SampleCount, LogrithmicPlotting):  
+    def freqSweeper(self, Start, Stop, SampleCount, LogrithmicPlotting):
+        ''' freq_sweeper() is used to obtain the frequency response of a device within a frequency range.
+            If the user is calling this function, it should be noted that freq_sweeper() returns a dicti-
+            onary-like object.
+            Please also call dataPrcs() to transfer this dictionary-like data to a frame-like data, and
+            call save() to save the transfered file into .csv.
+        '''
+
         sweeper = self.daq.sweep()
         sweeper.trigger()
         sweep_nodes = [
@@ -239,17 +245,13 @@ class Zurich():
             'r': scopeR,
             'phase': theta2
         }
-
         sweeper.unsubscribe(num_path)
 
         return demod_dict
 
-    '''存檔，量測到的資料會存在 C_ + "temp*100" + K + "num" + T_SAC.txt。
-    配合 C_CFG.txt 一起丟到 igor 跑圖。
-    '''
     def save(self, device_name, data_frame, count, temp):
         csvfile = data_frame.to_csv(device_name + "_" + str(int(temp*100)) + "K" + str(count) + "T_SAC.txt", sep='\t', index=False)
-
+        
         return csvfile
     
     def saveCFG(self, device_name, fStart, fStop, fSampleCount, vdcStart, vdcStop, vdcStep, vacStart, vacStop, vacStep, tStart, tStop, tStep):
@@ -267,20 +269,14 @@ class Zurich():
 
         return cfg_csv
 
-    '''1. 處理資料遺失的狀況。
-    2. 若資料的值為 NaN，用 0 取代掉該資料
-    '''
     def md_handling(self, mdh_frame):
+        ''' Handle the situation of missing datas, if the value is NaN, then use 0 instead. '''
         for col in mdh_frame:
             if pd.isna(mdh_frame[col]) == True:
                 mdh_frame.fillna(0)
 
         return mdh_frame
     
-    '''1. 傳入「字典」形式之資料，轉成表格輸出。
-    2. 若傳入新資料，則在表格右方新增欄位。
-    3. 若傳入資料之欄位名稱重複，則不予新增新欄位。
-    '''
     def dataPrcs(self, demod_dict, vac, vdc, count, temp):
         freq = demod_dict['f']
         Gp = demod_dict['conductance']
@@ -301,7 +297,7 @@ class Zurich():
         
         return self.data_frame
 
-    '''Beneath are the parameters used in T/DC/AC/F Sweeper, called by gui.py and executed by mainwindow.ui'''
+    ''' Beneath are the parameters used in T/DC/AC/F Sweeper '''
     def setDeviceName(self, device_name):
         self.device_name = device_name
 
@@ -349,9 +345,14 @@ class Zurich():
 
     def Start(self):
         self.tdafSweeper(self.device_name, self.tempStart, self.tempStop, self.tempStep, self.vdcStart, self.vdcStop, self.vdcStep, self.vacStart, self.vacStop, self.vacStep, self.fStart, self.fStop, self.fSampleCount, self.tdaffLogrithmicPlotting)
-    '''END of T/DC/AC/F Sweeper Parameter-Settings'''
+    ''' END of T/DC/AC/F Sweeper Parameter-Settings'''
 
     def tdafSweeper(self, device_name, tempStart, tempStop, tempStep, vdcStart, vdcStop, vdcStep, vacStart, vacStop, vacStep, fStart, fStop, fSampleCount, tdaffLogrithmicPlotting):
+        ''' tdafSweeper() is the main function of class Zurich(), Zurich() is programmed to sweep "temperature",
+            "DC volate source", "AC voltage source" and "frequency" to measure the response of the device to be
+            tested with each parameter.
+        '''
+
         tempStart = int(tempStart)
         tempStop = int(tempStop+1)
         tempStep = int(tempStep)
@@ -362,24 +363,24 @@ class Zurich():
         vacStop = int(vacStop*10+1)
         vacStep = int(vacStep*10)
         
-        # print(self.lk.temperature_A)
+        print(self.lk.temperature_A)
 
-        # for temp in range(tempStart, tempStop, tempStep):
-        #     self.lk.setpoint_1 = temp
-        #     self.lk.heater_range = 'high'
-        #     self.lk.wait_for_temperature()
+        for temp in range(tempStart, tempStop, tempStep):
+            self.lk.setpoint_1 = temp
+            self.lk.heater_range = 'high'
+            self.lk.wait_for_temperature()
 
-        #     self.sigoutsOn()
+            self.sigoutsOn()
 
-        for vdc in range(vdcStart, vdcStop, vdcStep):
-            vdc = vdc/10
-            self.setVoutDCoffset(vdc)
-            for vac in range(vacStart, vacStop, vacStep):
-                vac = vac/10
-                self.setVoutACoutput(vac)
-                step_dict = self.freqSweeper(fStart, fStop ,fSampleCount, tdaffLogrithmicPlotting)
-                tdaf_frame = self.dataPrcs(step_dict, vac, vdc, self.count, temp=300)
-                print(tdaf_frame)
+            for vdc in range(vdcStart, vdcStop, vdcStep):
+                vdc = vdc/10
+                self.setVoutDCoffset(vdc)
+                for vac in range(vacStart, vacStop, vacStep):
+                    vac = vac/10
+                    self.setVoutACoutput(vac)
+                    step_dict = self.freqSweeper(fStart, fStop ,fSampleCount, tdaffLogrithmicPlotting)
+                    tdaf_frame = self.dataPrcs(step_dict, vac, vdc, self.count, temp=300)
+                    print(tdaf_frame)
 
         self.sigoutsOff()
 
