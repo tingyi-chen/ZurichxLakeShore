@@ -368,7 +368,7 @@ class Zurich():
         for temp in range(tempStart, tempStop, tempStep):
             self.lk.setpoint_1 = temp
             self.lk.heater_range = 'high'
-            self.lk.wait_for_temperature()
+            lk.wait_for_temperature(0.5, 0.1, 'A', 1, 900, 5)
 
             self.sigoutsOn()
 
@@ -383,7 +383,8 @@ class Zurich():
                     print(tdaf_frame)
 
         self.sigoutsOff()
-
+        self.lk.disable_heater()
+        
         self.save(device_name, tdaf_frame, self.count, temp=300)
         self.count = self.count + 1
         self.data_dict = {}
