@@ -4,8 +4,6 @@ from set_in import SetIn
 from set_dc import SetDC
 from set_ta import SetTA
 from set_demod import SetDemod
-from PyQt5.QtWidgets import QApplication
-import sys
 
 class Manager():
     def __init__(self):
@@ -67,7 +65,3 @@ class Manager():
         self.set_window.close()
         self.demod_window.pageUp.clicked.connect(self.setWindow)
         self.value = 4
-
-app = QApplication(sys.argv)
-manager = Manager()
-app.exec_()

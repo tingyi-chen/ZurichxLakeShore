@@ -9,7 +9,7 @@ from pymeasure.instruments.lakeshore.lakeshore331 import LakeShore331
 class Zurich():
     ''' This Zurich() Class provides the connecting bridge between HF2LI, LakeShore and PC.'''
 
-    def __init__(self, device_id, channel):
+    def __init__(self, device_id, channel, gpib_serial):
         ''' First, __init__() creates an API to communicate with HF2LI with the device ID (ex.'dev1521') 
             and the channel that used for input, output, demodulators and others.
             Second, __init__() also makes a connection to LakeShore335 via GPIB/USB cable, which provided
@@ -24,7 +24,7 @@ class Zurich():
         self.daq = zp.ziDAQServer(self.props['serveraddress'], self.props['serverport'], self.props['apilevel'])
         self.channel = str(channel)
 
-        self.lk = LakeShore331("GPIB0::12::INSTR")
+        self.lk = LakeShore331(gpib_serial)
 
         self.data_dict = {}
         self.count = 0
@@ -215,11 +215,11 @@ class Zurich():
 
         data = sweeper.read(True)
         # f = data['dev1521']['demods']['0']['sample'][0][0]['frequency']
-        f = data['/dev1521/demods/0/sample'][0][0]['frequency']
-        demodX = data['/dev1521/demods/0/sample'][0][0]['x']
-        demodY = data['/dev1521/demods/0/sample'][0][0]['y']
-        demodR = data['/dev1521/demods/0/sample'][0][0]['r']
-        demodphase = data['/dev1521/demods/0/sample'][0][0]['phase']
+        f = data['/'+ self.device+ '/demods/'+ self.channel+ '/sample'][0][0]['frequency']
+        demodX = data['/'+ self.device+ '/demods/'+ self.channel+ '/sample'][0][0]['x']
+        demodY = data['/'+ self.device+ '/demods/'+ self.channel+ '/sample'][0][0]['y']
+        demodR = data['/'+ self.device+ '/demods/'+ self.channel+ '/sample'][0][0]['r']
+        demodphase = data['/'+ self.device+ '/demods/'+ self.channel+ '/sample'][0][0]['phase']
         scopeX = abs(demodX * pow(2, 1/2))
         scopeY = abs(demodY * pow(2, 1/2))
         scopeV = pow((pow(scopeX, 2) + pow(scopeY, 2)), 1/2)

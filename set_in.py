@@ -7,7 +7,7 @@ from ui.in_ui import Ui_MainWindow
 class SetIn(QMainWindow, Ui_MainWindow):
     def __init__(self, parent = None):
         super(SetIn, self).__init__(parent)
-        self.zurich = Zurich('dev1521', 0)
+        self.zurich = Zurich('dev1521', 0, 'GPIB0::12::INSTR')
         uic.loadUi("ui/in_ui.ui", self)
         self.setIn()
         

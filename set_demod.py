@@ -7,7 +7,7 @@ from ui.demod_ui import Ui_MainWindow
 class SetDemod(QMainWindow, Ui_MainWindow):
     def __init__(self, parent = None):
         super(SetDemod, self).__init__(parent)
-        self.zurich = Zurich('dev1521', 0)
+        self.zurich = Zurich('dev1521', 0, 'GPIB0::12::INSTR')
         uic.loadUi("ui/demod_ui.ui", self)
         self.setDemod()
         

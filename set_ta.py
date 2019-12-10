@@ -7,7 +7,7 @@ from ui.ta_ui import Ui_MainWindow
 class SetTA(QMainWindow, Ui_MainWindow):
     def __init__(self, parent = None):
         super(SetTA, self).__init__(parent)
-        self.zurich = Zurich('dev1521', 0)
+        self.zurich = Zurich('dev1521', 0, 'GPIB0::12::INSTR')
         uic.loadUi("ui/ta_ui.ui", self)
         self.ta()
         
