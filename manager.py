@@ -21,9 +21,7 @@ class Manager():
     def setWindow(self):
         self.set_window = Sets()
         self.set_window.show()
-        if self.value == 0:
-            self.home_window.close()
-        elif self.value == 1:
+        if self.value == 1:
             self.ta_window.close()
         elif self.value == 2:
             self.dc_window.close()
@@ -31,7 +29,7 @@ class Manager():
             self.input_window.close()
         elif self.value == 4:
             self.demod_window.close()
-        self.set_window.PageUp.clicked.connect(self.homeWindow)
+        self.set_window.PageUp.clicked.connect(self.set_window.close)
         self.set_window.TA.clicked.connect(self.taWindow)
         self.set_window.DCOffsetRange.clicked.connect(self.dcWindow)
         self.set_window.VoltageInput.clicked.connect(self.inputWindow)

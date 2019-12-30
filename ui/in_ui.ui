@@ -62,107 +62,6 @@
      <string>Voltage Input</string>
     </property>
    </widget>
-   <widget class="QWidget" name="gridLayoutWidget_3">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>80</y>
-      <width>371</width>
-      <height>231</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="VoltageInGrid">
-     <item row="3" column="0" alignment="Qt::AlignHCenter">
-      <widget class="QLabel" name="VoltageInLabel4">
-       <property name="text">
-        <string>AC Coupling</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0" alignment="Qt::AlignHCenter">
-      <widget class="QLabel" name="VoltageInLabel3">
-       <property name="text">
-        <string>Differentiate</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0" alignment="Qt::AlignHCenter">
-      <widget class="QLabel" name="VoltageInLabel2">
-       <property name="text">
-        <string>Imp 50</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <layout class="QHBoxLayout" name="DIff">
-       <item>
-        <widget class="QPushButton" name="diffYes">
-         <property name="text">
-          <string>Yes</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="diffNo">
-         <property name="text">
-          <string>No</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="0" column="0" alignment="Qt::AlignHCenter">
-      <widget class="QLabel" name="VoltageInLabel1">
-       <property name="text">
-        <string>Range</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <layout class="QHBoxLayout" name="Imp50">
-       <item>
-        <widget class="QPushButton" name="imp50Yes">
-         <property name="text">
-          <string>Yes</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="imp50No">
-         <property name="text">
-          <string>No</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="3" column="1">
-      <layout class="QHBoxLayout" name="ACCoupling_2">
-       <item>
-        <widget class="QPushButton" name="acCouplingYes_ZI">
-         <property name="text">
-          <string>Yes</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="acCouplingNo_ZI">
-         <property name="text">
-          <string>No</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="0" column="1">
-      <widget class="QDoubleSpinBox" name="voltageInRange">
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QPushButton" name="pageUp">
     <property name="geometry">
      <rect>
@@ -175,6 +74,231 @@
     <property name="text">
      <string>＜--</string>
     </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>70</y>
+      <width>471</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="Channel1">
+     <attribute name="title">
+      <string>Channel1</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>10</y>
+        <width>371</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="VoltageInGrid">
+       <item row="3" column="1">
+        <layout class="QHBoxLayout" name="ACCoupling_1">
+         <item>
+          <widget class="QPushButton" name="acCouplingYes_ZI_1">
+           <property name="text">
+            <string>Yes</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="acCouplingNo_ZI_1">
+           <property name="text">
+            <string>No</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="1">
+        <layout class="QHBoxLayout" name="DIff">
+         <item>
+          <widget class="QPushButton" name="diffYes_1">
+           <property name="text">
+            <string>Yes</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="diffNo_1">
+           <property name="text">
+            <string>No</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="0" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="VoltageInLabel1">
+         <property name="text">
+          <string>Range</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="VoltageInLabel3">
+         <property name="text">
+          <string>Differentiate</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QDoubleSpinBox" name="voltageInRange_1">
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="VoltageInLabel4">
+         <property name="text">
+          <string>AC Coupling</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <layout class="QHBoxLayout" name="Imp50">
+         <item>
+          <widget class="QPushButton" name="imp50Yes_1">
+           <property name="text">
+            <string>Yes</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="imp50No_1">
+           <property name="text">
+            <string>No</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="VoltageInLabel2">
+         <property name="text">
+          <string>Imp 50</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Channel2">
+     <attribute name="title">
+      <string>Channel2</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>10</y>
+        <width>371</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="VoltageInGrid_2">
+       <item row="2" column="1">
+        <layout class="QHBoxLayout" name="DIff_2">
+         <item>
+          <widget class="QPushButton" name="diffYes_2">
+           <property name="text">
+            <string>Yes</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="diffNo_2">
+           <property name="text">
+            <string>No</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="0" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="VoltageInLabel1_2">
+         <property name="text">
+          <string>Range</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <layout class="QHBoxLayout" name="Imp50_2">
+         <item>
+          <widget class="QPushButton" name="imp50Yes_2">
+           <property name="text">
+            <string>Yes</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="imp50No_2">
+           <property name="text">
+            <string>No</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="VoltageInLabel4_2">
+         <property name="text">
+          <string>AC Coupling</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="VoltageInLabel2_2">
+         <property name="text">
+          <string>Imp 50</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QDoubleSpinBox" name="voltageInRange_2">
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="VoltageInLabel3_2">
+         <property name="text">
+          <string>Differentiate</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <layout class="QHBoxLayout" name="ACCoupling_2">
+         <item>
+          <widget class="QPushButton" name="acCouplingYes_ZI_2">
+           <property name="text">
+            <string>Yes</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="acCouplingNo_ZI_2">
+           <property name="text">
+            <string>No</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

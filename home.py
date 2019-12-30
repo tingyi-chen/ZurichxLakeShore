@@ -24,7 +24,7 @@ class Home(QMainWindow, Ui_MainWindow):
         self.setTDAFSweep()
 
     def setTDAFSweep(self):
-        self.Start.setEnabled(False)
+        # self.Start.clicked.setEnabled(False)
 
         self.deviceName.setText('Default')
         self.deviceName.textChanged.connect(self.zurich.setDeviceName)
@@ -80,7 +80,7 @@ class Home(QMainWindow, Ui_MainWindow):
         self.tempStopValue.valueChanged.connect(self.zurich.setTempMax)
         self.tempStepValue.valueChanged.connect(self.zurich.setTempStep)
 
-        self.Confirm.clicked.connect(self.setInputDisabled)
+        # self.Confirm.clicked.connect(self.setInputDisabled)
         self.Start.clicked.connect(self.zurich.Start)
         self.Cancel.clicked.connect(self.cancel)
 

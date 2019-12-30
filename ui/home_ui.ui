@@ -52,16 +52,6 @@
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QPushButton" name="Confirm">
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="text">
-           <string>Confirm</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QPushButton" name="Start">
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>

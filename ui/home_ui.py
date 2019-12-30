@@ -31,10 +31,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.verticalLayoutWidget_6)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.Confirm = QtWidgets.QPushButton(self.verticalLayoutWidget_6)
-        self.Confirm.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.Confirm.setObjectName("Confirm")
-        self.horizontalLayout_2.addWidget(self.Confirm)
         self.Start = QtWidgets.QPushButton(self.verticalLayoutWidget_6)
         self.Start.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Start.setObjectName("Start")
@@ -252,7 +248,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.Confirm.setText(_translate("MainWindow", "Confirm"))
         self.Start.setText(_translate("MainWindow", "Start"))
         self.Cancel.setText(_translate("MainWindow", "Cancel"))
         self.advancedSettings.setText(_translate("MainWindow", "..."))

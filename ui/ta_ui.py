@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'TASettings.ui'
+# Form implementation generated from reading ui file 'ta_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.2
 #
@@ -86,8 +86,8 @@ class Ui_MainWindow(object):
         self.acCouplingYes_TA.setText(_translate("MainWindow", "Yes"))
         self.acCouplingNo_TA.setText(_translate("MainWindow", "No"))
         self.GainLabel.setText(_translate("MainWindow", "Gain"))
-        self.gainValue.setItemText(0, _translate("MainWindow", "100"))
-        self.gainValue.setItemText(1, _translate("MainWindow", "1000"))
+        self.gainValue.setItemText(0, _translate("MainWindow", "1000"))
+        self.gainValue.setItemText(1, _translate("MainWindow", "100"))
         self.gainValue.setItemText(2, _translate("MainWindow", "10000"))
         self.gainValue.setItemText(3, _translate("MainWindow", "100000"))
         self.gainValue.setItemText(4, _translate("MainWindow", "1000000"))
