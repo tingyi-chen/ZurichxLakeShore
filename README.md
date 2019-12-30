@@ -31,6 +31,6 @@ This manual introduces how to deal with this program with Zurich HF2LI Lock-In A
 Since I'm not a professional developer and not being trained with CSIE courses, there may be some syntax difficult to understand or errors while running.
 **Please contact tingyi.chen0825@gmail.com if there are problems.**
 ## Reference & Documents
-[Zurich HF2LI User Manual](https://www.zhinst.com/sites/default/files/ziHF2_UserManual_LabOne_64000.pdf)
-[Zurich HF2LI Python Program Manual](https://www.zhinst.com/sites/default/files/LabOneProgrammingManual_64000.pdf)
-[LakeShore331 Python Open Source Code](https://pymeasure.readthedocs.io/en/latest/api/instruments/lakeshore/lakeshore331.html)
+- [Zurich HF2LI User Manual](https://www.zhinst.com/sites/default/files/ziHF2_UserManual_LabOne_64000.pdf)
+- [Zurich HF2LI Python Program Manual](https://www.zhinst.com/sites/default/files/LabOneProgrammingManual_64000.pdf)
+- [LakeShore331 Python Open Source Code](https://pymeasure.readthedocs.io/en/latest/api/instruments/lakeshore/lakeshore331.html)
