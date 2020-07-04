@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'demod_ui.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.2
+# Created by: PyQt5 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -19,27 +19,25 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.AdvancedSettings = QtWidgets.QLabel(self.centralwidget)
-        self.AdvancedSettings.setGeometry(QtCore.QRect(217, 20, 165, 24))
+        self.AdvancedSettings.setGeometry(QtCore.QRect(150, 20, 300, 50))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.AdvancedSettings.setFont(font)
+        self.AdvancedSettings.setAlignment(QtCore.Qt.AlignCenter)
         self.AdvancedSettings.setObjectName("AdvancedSettings")
         self.Demodulators = QtWidgets.QLabel(self.centralwidget)
-        self.Demodulators.setGeometry(QtCore.QRect(251, 40, 97, 18))
+        self.Demodulators.setGeometry(QtCore.QRect(200, 50, 200, 40))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.Demodulators.setFont(font)
+        self.Demodulators.setAlignment(QtCore.Qt.AlignCenter)
         self.Demodulators.setObjectName("Demodulators")
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(210, 80, 91, 201))
+        self.layoutWidget.setGeometry(QtCore.QRect(140, 100, 221, 201))
         self.layoutWidget.setObjectName("layoutWidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.layoutWidget)
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.ADCSelect = QtWidgets.QLabel(self.layoutWidget)
-        self.ADCSelect.setAlignment(QtCore.Qt.AlignCenter)
-        self.ADCSelect.setObjectName("ADCSelect")
-        self.gridLayout_2.addWidget(self.ADCSelect, 0, 0, 1, 1)
         self.Order = QtWidgets.QLabel(self.layoutWidget)
         self.Order.setAlignment(QtCore.Qt.AlignCenter)
         self.Order.setObjectName("Order")
@@ -52,8 +50,12 @@ class Ui_MainWindow(object):
         self.TC.setAlignment(QtCore.Qt.AlignCenter)
         self.TC.setObjectName("TC")
         self.gridLayout_2.addWidget(self.TC, 2, 0, 1, 1)
+        self.ADCSelect = QtWidgets.QLabel(self.layoutWidget)
+        self.ADCSelect.setAlignment(QtCore.Qt.AlignCenter)
+        self.ADCSelect.setObjectName("ADCSelect")
+        self.gridLayout_2.addWidget(self.ADCSelect, 0, 0, 1, 1)
         self.layoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget_2.setGeometry(QtCore.QRect(310, 80, 81, 201))
+        self.layoutWidget_2.setGeometry(QtCore.QRect(380, 100, 81, 201))
         self.layoutWidget_2.setObjectName("layoutWidget_2")
         self.gridLayout = QtWidgets.QGridLayout(self.layoutWidget_2)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
@@ -89,7 +91,7 @@ class Ui_MainWindow(object):
         self.pageUp.setObjectName("pageUp")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 600, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 600, 25))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
@@ -101,18 +103,8 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.AdvancedSettings.setText(_translate("MainWindow", "Advanced Settings"))
         self.Demodulators.setText(_translate("MainWindow", "Demodulators"))
+        self.Order.setText(_translate("MainWindow", "Low-Pass Filter Order"))
+        self.Rate.setText(_translate("MainWindow", "Data Transfer Rate(count/s)"))
+        self.TC.setText(_translate("MainWindow", "Time Constant(ms)"))
         self.ADCSelect.setText(_translate("MainWindow", "ADC Select"))
-        self.Order.setText(_translate("MainWindow", "Order"))
-        self.Rate.setText(_translate("MainWindow", "Rate"))
-        self.TC.setText(_translate("MainWindow", "Time Constant"))
         self.pageUp.setText(_translate("MainWindow", "＜--"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

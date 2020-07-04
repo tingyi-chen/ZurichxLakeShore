@@ -76,7 +76,7 @@
       <widget class="QLineEdit" name="deviceName">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>110</x>
          <y>80</y>
          <width>241</width>
          <height>21</height>
@@ -99,10 +99,10 @@
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>80</x>
-         <y>20</y>
+         <x>70</x>
+         <y>10</y>
          <width>421</width>
-         <height>31</height>
+         <height>50</height>
         </rect>
        </property>
        <property name="font">
@@ -111,33 +111,26 @@
         </font>
        </property>
        <property name="text">
-        <string>Temperaure / DC / AC / Frequency Sweep Mode</string>
+        <string>Sweeping Application</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>10</x>
          <y>70</y>
-         <width>79</width>
+         <width>89</width>
          <height>201</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
-         <widget class="QLabel" name="DeviceNameLabel">
+        <item row="3" column="0">
+         <widget class="QLabel" name="TDAFLabel7">
           <property name="text">
-           <string>DeviceName</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="TDAFLabel1">
-          <property name="text">
-           <string>T Start</string>
+           <string>AC Start(V)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -147,17 +140,17 @@
         <item row="2" column="0">
          <widget class="QLabel" name="TDAFLabel4">
           <property name="text">
-           <string>DC Start</string>
+           <string>DC Start(V)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="TDAFLabel7">
+        <item row="1" column="0">
+         <widget class="QLabel" name="TDAFLabel1">
           <property name="text">
-           <string>AC Start</string>
+           <string>T Start(K)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -167,7 +160,17 @@
         <item row="4" column="0">
          <widget class="QLabel" name="TDAFLabel10">
           <property name="text">
-           <string>F Start</string>
+           <string>F Start(Hz)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="DeviceNameLabel">
+          <property name="text">
+           <string>DeviceName</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -179,9 +182,9 @@
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>200</x>
          <y>110</y>
-         <width>53</width>
+         <width>82</width>
          <height>161</height>
         </rect>
        </property>
@@ -189,7 +192,7 @@
         <item row="0" column="0">
          <widget class="QLabel" name="TDAFLabel2">
           <property name="text">
-           <string>T Stop</string>
+           <string>T Stop(K)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -199,7 +202,7 @@
         <item row="1" column="0">
          <widget class="QLabel" name="TDAFLabel5">
           <property name="text">
-           <string>DC Stop</string>
+           <string>DC Stop(V)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -209,7 +212,7 @@
         <item row="2" column="0">
          <widget class="QLabel" name="TDAFLabel8">
           <property name="text">
-           <string>AC Stop</string>
+           <string>AC Stop(V)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -219,7 +222,7 @@
         <item row="3" column="0">
          <widget class="QLabel" name="TDAFLabel11">
           <property name="text">
-           <string>F Stop</string>
+           <string>F Stop(Hz)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -233,7 +236,7 @@
         <rect>
          <x>380</x>
          <y>70</y>
-         <width>84</width>
+         <width>96</width>
          <height>201</height>
         </rect>
        </property>
@@ -241,7 +244,7 @@
         <item row="0" column="0">
          <widget class="QLabel" name="TDAFLabel13">
           <property name="text">
-           <string>T current</string>
+           <string>T current(K)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -251,7 +254,7 @@
         <item row="1" column="0">
          <widget class="QLabel" name="TDAFLabel3">
           <property name="text">
-           <string>T Step</string>
+           <string>T Step(K)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -261,7 +264,7 @@
         <item row="2" column="0">
          <widget class="QLabel" name="TDAFLabel6">
           <property name="text">
-           <string>DC Step</string>
+           <string>DC Step(V)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -271,7 +274,7 @@
         <item row="3" column="0">
          <widget class="QLabel" name="TDAFLabel9">
           <property name="text">
-           <string>AC Step</string>
+           <string>AC Step(V)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -293,7 +296,7 @@
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>280</x>
+         <x>290</x>
          <y>110</y>
          <width>81</width>
          <height>161</height>
@@ -348,7 +351,7 @@
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>480</x>
          <y>70</y>
          <width>81</width>
          <height>201</height>
@@ -419,7 +422,7 @@
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>110</x>
          <y>110</y>
          <width>81</width>
          <height>161</height>
@@ -530,7 +533,7 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuZurich_Instruments_Control_Panel">

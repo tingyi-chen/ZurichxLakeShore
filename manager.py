@@ -38,10 +38,13 @@ class Manager():
 
     def taWindow(self):
         self.ta_window = SetTA()
-        self.ta_window.show()
-        self.set_window.close()
-        self.ta_window.pageUp.clicked.connect(self.setWindow)
-        self.value = 1
+        if self.ta_window.zurich.tamp_bool == 1:
+            self.ta_window.show()
+            self.set_window.close()
+            self.ta_window.pageUp.clicked.connect(self.setWindow)
+            self.value = 1
+        else:
+            self.ta_window.alertBox.information(self.ta_window.alertBox, 'Warning', 'No Transimpedance Amplifier HF2TA connected, all your settings will not be valid.', self.ta_window.alertBox.Ok)
 
     def dcWindow(self):
         self.dc_window = SetDC()

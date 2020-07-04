@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'VoutSettings.ui'
+# Form implementation generated from reading ui file 'dc_ui.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.2
+# Created by: PyQt5 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -19,19 +19,21 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.AdvancedSettings_Vout = QtWidgets.QLabel(self.centralwidget)
-        self.AdvancedSettings_Vout.setGeometry(QtCore.QRect(217, 20, 165, 24))
+        self.AdvancedSettings_Vout.setGeometry(QtCore.QRect(150, 20, 300, 50))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.AdvancedSettings_Vout.setFont(font)
+        self.AdvancedSettings_Vout.setAlignment(QtCore.Qt.AlignCenter)
         self.AdvancedSettings_Vout.setObjectName("AdvancedSettings_Vout")
         self.DCOffsetRange_Vout = QtWidgets.QLabel(self.centralwidget)
-        self.DCOffsetRange_Vout.setGeometry(QtCore.QRect(242, 40, 115, 18))
+        self.DCOffsetRange_Vout.setGeometry(QtCore.QRect(200, 50, 200, 40))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.DCOffsetRange_Vout.setFont(font)
+        self.DCOffsetRange_Vout.setAlignment(QtCore.Qt.AlignCenter)
         self.DCOffsetRange_Vout.setObjectName("DCOffsetRange_Vout")
         self.gridLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
-        self.gridLayoutWidget_2.setGeometry(QtCore.QRect(120, 80, 361, 51))
+        self.gridLayoutWidget_2.setGeometry(QtCore.QRect(110, 100, 361, 51))
         self.gridLayoutWidget_2.setObjectName("gridLayoutWidget_2")
         self.VoltageOutGrid = QtWidgets.QGridLayout(self.gridLayoutWidget_2)
         self.VoltageOutGrid.setContentsMargins(0, 0, 0, 0)
@@ -50,7 +52,7 @@ class Ui_MainWindow(object):
         self.pageUp.setObjectName("pageUp")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 600, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 600, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
@@ -61,19 +63,9 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.AdvancedSettings_Vout.setText(_translate("MainWindow", "Advanced Settings"))
-        self.DCOffsetRange_Vout.setText(_translate("MainWindow", "DC Offset Range"))
-        self.VoltageOutLabel1.setText(_translate("MainWindow", "Range"))
-        self.voltageOutRange.setItemText(0, _translate("MainWindow", "10"))
-        self.voltageOutRange.setItemText(1, _translate("MainWindow", "1"))
-        self.voltageOutRange.setItemText(2, _translate("MainWindow", "0.1"))
+        self.DCOffsetRange_Vout.setText(_translate("MainWindow", "Voltage Ouput"))
+        self.VoltageOutLabel1.setText(_translate("MainWindow", "Output Range"))
+        self.voltageOutRange.setItemText(0, _translate("MainWindow", "1"))
+        self.voltageOutRange.setItemText(1, _translate("MainWindow", "0.1"))
+        self.voltageOutRange.setItemText(2, _translate("MainWindow", "10"))
         self.pageUp.setText(_translate("MainWindow", "＜--"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

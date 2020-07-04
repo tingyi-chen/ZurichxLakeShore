@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ta_ui.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.2
+# Created by: PyQt5 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -19,7 +19,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayoutWidget_5 = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_5.setGeometry(QtCore.QRect(130, 80, 321, 51))
+        self.horizontalLayoutWidget_5.setGeometry(QtCore.QRect(80, 100, 441, 51))
         self.horizontalLayoutWidget_5.setObjectName("horizontalLayoutWidget_5")
         self.ACCoupling = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_5)
         self.ACCoupling.setContentsMargins(0, 0, 0, 0)
@@ -29,15 +29,15 @@ class Ui_MainWindow(object):
         self.ACCoupling.addWidget(self.ACCouplingLabel, 0, QtCore.Qt.AlignHCenter)
         self.ACCouplingValue = QtWidgets.QHBoxLayout()
         self.ACCouplingValue.setObjectName("ACCouplingValue")
-        self.acCouplingYes_TA = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
+        self.acCouplingYes_TA = QtWidgets.QRadioButton(self.horizontalLayoutWidget_5)
         self.acCouplingYes_TA.setObjectName("acCouplingYes_TA")
-        self.ACCouplingValue.addWidget(self.acCouplingYes_TA)
-        self.acCouplingNo_TA = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
+        self.ACCouplingValue.addWidget(self.acCouplingYes_TA, 0, QtCore.Qt.AlignHCenter)
+        self.acCouplingNo_TA = QtWidgets.QRadioButton(self.horizontalLayoutWidget_5)
         self.acCouplingNo_TA.setObjectName("acCouplingNo_TA")
-        self.ACCouplingValue.addWidget(self.acCouplingNo_TA)
+        self.ACCouplingValue.addWidget(self.acCouplingNo_TA, 0, QtCore.Qt.AlignHCenter)
         self.ACCoupling.addLayout(self.ACCouplingValue)
         self.horizontalLayoutWidget_4 = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_4.setGeometry(QtCore.QRect(130, 130, 321, 51))
+        self.horizontalLayoutWidget_4.setGeometry(QtCore.QRect(140, 160, 321, 51))
         self.horizontalLayoutWidget_4.setObjectName("horizontalLayoutWidget_4")
         self.Gain = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_4)
         self.Gain.setContentsMargins(0, 0, 0, 0)
@@ -56,23 +56,25 @@ class Ui_MainWindow(object):
         self.gainValue.raise_()
         self.GainLabel.raise_()
         self.AdvancedSettings_TA = QtWidgets.QLabel(self.centralwidget)
-        self.AdvancedSettings_TA.setGeometry(QtCore.QRect(217, 20, 165, 24))
+        self.AdvancedSettings_TA.setGeometry(QtCore.QRect(150, 20, 300, 50))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.AdvancedSettings_TA.setFont(font)
+        self.AdvancedSettings_TA.setAlignment(QtCore.Qt.AlignCenter)
         self.AdvancedSettings_TA.setObjectName("AdvancedSettings_TA")
         self.HF2TA = QtWidgets.QLabel(self.centralwidget)
-        self.HF2TA.setGeometry(QtCore.QRect(176, 40, 247, 18))
+        self.HF2TA.setGeometry(QtCore.QRect(50, 50, 500, 40))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.HF2TA.setFont(font)
+        self.HF2TA.setAlignment(QtCore.Qt.AlignCenter)
         self.HF2TA.setObjectName("HF2TA")
         self.pageUp = QtWidgets.QPushButton(self.centralwidget)
         self.pageUp.setGeometry(QtCore.QRect(20, 10, 61, 32))
         self.pageUp.setObjectName("pageUp")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 600, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 600, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
@@ -94,13 +96,3 @@ class Ui_MainWindow(object):
         self.AdvancedSettings_TA.setText(_translate("MainWindow", "Advanced Settings"))
         self.HF2TA.setText(_translate("MainWindow", "Trans-Impedance Amplifier (HF2TA)"))
         self.pageUp.setText(_translate("MainWindow", "＜--"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
